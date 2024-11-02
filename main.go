@@ -59,4 +59,16 @@ func loadStockData() {
 		}
 	})
 
+	stockSymbols := []string{"MSFT", "AAPL", "GOOGL", "AMZN", "FB", "TSLA", "NFLX", "NVDA", "BABA", "V"}
+
+	for _, symbol := range stockSymbols {
+		c.Visit("https://finance.yahoo.com/quote/" + symbol)
+	}
+
+	for _, stock := range stocks {
+		writer.Write([]string{stock.Symbol, fmt.Sprintf("%.2f", stock.Price), stock.Change})
+	}
+
+	fmt.Println("Stock data successfully written to CSV!")
+
 }
