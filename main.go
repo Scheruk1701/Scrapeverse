@@ -41,6 +41,10 @@ func loadStockData() {
 
 	c := colly.NewCollector()
 
+	c.OnRequest(func(r *colly.Request) {
+		fmt.Println("Visiting:", r.URL.String())
+	})
+
 	c.OnHTML("fin-streamer[data-field='regularMarketPrice']", func(e *colly.HTMLElement) {
 		symbol := strings.TrimPrefix(e.Request.URL.Path, "/quote/")
 		price, _ := strconv.ParseFloat(e.Text, 64)
