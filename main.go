@@ -1,13 +1,19 @@
 package main
 
 import (
+	"encoding/csv"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
+
+	"github.com/gocolly/colly"
 )
 
 type Stock struct {
-    Symbol string
-    Price  float64
-    Change string
+	Symbol string
+	Price  float64
+	Change string
 }
 
 var stocks []Stock
@@ -33,5 +39,24 @@ func loadStockData() {
 	headers := []string{"Symbol", "Price", "Change"}
 	writer.Write(headers)
 
+	c := colly.NewCollector()
+
+	c.OnHTML("fin-streamer[data-field='regularMarketPrice']", func(e *colly.HTMLElement) {
+		symbol := strings.TrimPrefix(e.Request.URL.Path, "/quote/")
+		price, _ := strconv.ParseFloat(e.Text, 64)
+		if price > 0 {
+			stocks = append(stocks, Stock{Symbol: symbol, Price: price})
+		}
+	})
+
+	c.OnHTML("fin-streamer[data-field='regularMarketChangePercent']", func(e *colly.HTMLElement) {
+		symbol := strings.TrimPrefix(e.Request.URL.Path, "/quote/")
+		change := e.Text
+		for i, stock := range stocks {
+			if stock.Symbol == symbol {
+				stocks[i].Change = change
+			}
+		}
+	})
 
 }
