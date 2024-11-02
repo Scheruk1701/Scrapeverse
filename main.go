@@ -20,7 +20,7 @@ var stocks []Stock
 
 func main() {
 	// fmt.Println("Compile Crew")
-
+	loadStockData()
 }
 
 func loadStockData() {
