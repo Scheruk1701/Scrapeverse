@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: url('/assets/go-bg.gif') no-repeat center center fixed; 
+    background-size: contain; 
+    color: black; 
+}
+h1 {
+    color: #000000;
+    margin-top: 20px;
+}
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9); 
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: rgba(0, 123, 255, 0.8); 
+    color: white;
+}
+button, a {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px; 
+}
+button:hover, a:hover {
+    background-color: #0056b3;
+}
+h2 {
+    margin-top: 30px;
+    color: #000000;
+}

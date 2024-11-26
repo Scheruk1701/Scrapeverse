@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrapeverse-Home</title>
+    <link rel="stylesheet" href="/static/home.css">
+</head>
+<body>
+    <h1>Welcome to Scrapeverse!</h1>
+    <button id="scrapeBtn">Start Scraping</button>
+    <a href="/api/stocks/download">Download CSV</a>
+    <a href="/analyze">Analyze</a> 
+    <h2>All Stocks</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Price</th>
+                <th>Change</th>
+            </tr>
+        </thead>
+        <tbody id="stocksTableBody"></tbody>
+    </table>
+    <script src="/static/home.js"></script>
+</body>
+</html>

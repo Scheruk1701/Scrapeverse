@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze</title>
+    <link rel="stylesheet" href="/static/analyze.css">
+</head>
+<body>
+    <h1>Analyze Stocks</h1>
+    
+    <form id="searchForm">
+        <label for="searchSymbol">Search Stock by Symbol:</label>
+        <input type="text" id="searchSymbol" name="symbol" required>
+        <button type="submit">Search</button>
+    </form>
+    <div class="actions">
+        <a href="/" class="homepage-button">Go to Homepage</a>
+        <a href="#" id="sortAsc">Sort by Price (Ascending)</a>
+        <a href="#" id="sortDesc">Sort by Price (Descending)</a>
+        <button id="topGainerLoserBtn">Show Top Gainer & Loser</button>
+    </div>
+    <div class="result" id="topGainerLoser"></div>
+    <div class="stock-list" id="stockList"></div>
+    <div id="chartContainer"></div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="/static/analyze.js"></script>
+</body>
+</html>
